@@ -5,9 +5,9 @@ services:
     container_name: eagle-oj-db
     environment:
       MYSQL_DATABASE: eagle
-      MYSQL_ROOT_PASSWORD: ealge
+      MYSQL_ROOT_PASSWORD: eagle
     restart: always
     volumes:
-      - ~/data/mysql:/var/lib/mysql
+      - $PWD/data/mysql:/var/lib/mysql
     ports:
       - "3306:3306"
