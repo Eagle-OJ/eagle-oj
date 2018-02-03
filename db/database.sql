@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `eagle_oj` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `eagle_oj`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: eagle_oj
@@ -632,4 +634,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-03 12:19:08
+-- Dump completed on 2018-02-03 16:26:23
