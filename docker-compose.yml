@@ -1,10 +1,10 @@
 version: '3'
 services:
   db:
-    image: mysql:5.7
+    build: ./db
     container_name: eagle-oj-db
     environment:
-      MYSQL_ROOT_PASSWORD: eagle
+      MYSQL_ROOT_PASSWORD: eagle_oj
     restart: always
     volumes:
       - $PWD/data/mysql:/var/lib/mysql
