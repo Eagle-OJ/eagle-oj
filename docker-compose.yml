@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     build: ./db
+    image: ealge-oj-db
     container_name: eagle-oj-db
     environment:
       MYSQL_ROOT_PASSWORD: eagle_oj
