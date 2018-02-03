@@ -4,10 +4,15 @@ services:
     image: mysql:5.7
     container_name: eagle-oj-db
     environment:
-      MYSQL_DATABASE: eagle
       MYSQL_ROOT_PASSWORD: eagle
     restart: always
     volumes:
       - $PWD/data/mysql:/var/lib/mysql
     ports:
       - "3306:3306"
+  judger:
+    image: d87904488/eagle-oj-judger
+    container_name: eagle-oj-judger
+    restart: always
+    ports:
+      - "5000:5000"
