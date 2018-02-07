@@ -17,3 +17,14 @@ services:
     restart: always
     ports:
       - "5000:5000"
+  api:
+    image: d87904488/eagle-oj-api
+    container_name: ealge-oj-api
+    environment:
+      MYSQL_URL: db
+      MYSQL_DATABASE: eagle_oj
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: eagle_oj
+    restart: always
+    ports:
+      - "8080:8080"
