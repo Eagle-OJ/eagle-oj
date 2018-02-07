@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: d87904488/ealge-oj-db
+    image: d87904488/eagle-oj-db
     container_name: eagle-oj-db
     environment:
       MYSQL_ROOT_PASSWORD: eagle_oj
@@ -18,7 +18,7 @@ services:
       - "5000:5000"
   api:
     image: d87904488/eagle-oj-api
-    container_name: ealge-oj-api
+    container_name: eagle-oj-api
     environment:
       MYSQL_URL: db:3306
       MYSQL_DATABASE: eagle_oj
