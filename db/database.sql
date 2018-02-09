@@ -47,7 +47,7 @@ CREATE TABLE `attachment` (
   `status` tinyint(1) unsigned DEFAULT '1' COMMENT '0 失效 待删除\n1 有效',
   `upload_time` bigint(13) unsigned NOT NULL,
   PRIMARY KEY (`aid`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `contest` (
   `status` tinyint(1) unsigned NOT NULL COMMENT '0编辑中 1开启 2已结束',
   `create_time` bigint(13) unsigned NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,6 +110,7 @@ CREATE TABLE `contest_problem_user` (
   `cid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
+  `wrong_times` int(10) unsigned NOT NULL,
   `score` tinyint(3) unsigned NOT NULL,
   `status` enum('AC','WA','RTE','TLE','CE') NOT NULL,
   `solved_time` bigint(13) unsigned NOT NULL,
@@ -128,6 +129,9 @@ DROP TABLE IF EXISTS `contest_user`;
 CREATE TABLE `contest_user` (
   `cid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
+  `total_used_time` bigint(13) unsigned DEFAULT '0',
+  `total_score` int(10) unsigned DEFAULT '0',
+  `total_wrong_times` int(10) unsigned DEFAULT '0',
   `submit_times` int(10) unsigned DEFAULT '0',
   `finished_problems` int(10) unsigned DEFAULT '0',
   `ac_times` int(10) unsigned DEFAULT '0',
@@ -154,7 +158,7 @@ CREATE TABLE `group` (
   `password` varchar(6) DEFAULT NULL,
   `create_time` bigint(13) unsigned NOT NULL,
   PRIMARY KEY (`gid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +218,7 @@ CREATE TABLE `message` (
   PRIMARY KEY (`mid`),
   KEY `owner_index` (`owner`),
   KEY `create_time_index` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -322,7 +326,7 @@ CREATE TABLE `submission` (
   KEY `CID_INDEX` (`cid`),
   KEY `STATUS_INDEX` (`status`),
   KEY `SUBMIT_TIME_INDEX` (`submit_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -434,4 +438,4 @@ CREATE TABLE `user_log` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-07 14:16:17
+-- Dump completed on 2018-02-09 11:27:52
