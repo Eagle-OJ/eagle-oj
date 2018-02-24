@@ -20,6 +20,7 @@ services:
     image: d87904488/eagle-oj-api
     container_name: eagle-oj-api
     environment:
+      VIRTUAL_HOST: localhost
       MYSQL_URL: db:3306
       MYSQL_DATABASE: eagle_oj
       MYSQL_USERNAME: root
@@ -27,5 +28,16 @@ services:
     restart: always
     volumes:
       - $PWD/data/api:/eagle-oj/log
+    # ports:
+    #   - "8080:8080"
+  nginx:
+    image: jwilder/nginx-proxy:alpine
+    container_name: nginx
+    depends_on:
+      - judger
+      - db
+      - api
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
-      - "8080:8080"
+      - "80:80"
