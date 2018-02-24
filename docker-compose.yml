@@ -25,5 +25,7 @@ services:
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: eagle_oj
     restart: always
+    volumes:
+      - $PWD/data/api:/eagle-oj/log
     ports:
       - "8080:8080"
