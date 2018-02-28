@@ -39,5 +39,7 @@ services:
       - api
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      # - $PWD/ssl:/etc/nginx/certs
     ports:
       - "80:80"
+      # - "443:443" If you want to enable SSL
