@@ -27,7 +27,7 @@ services:
       MYSQL_PASSWORD: eagle_oj
     restart: always
     volumes:
-      - $PWD/data/api:/eagle-oj/log
+      - $PWD/data/api:/eagle-oj/data
     # ports:
     #   - "8080:8080"
   nginx:
