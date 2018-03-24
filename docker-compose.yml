@@ -4,7 +4,7 @@ services:
     image: d87904488/eagle-oj-db
     container_name: eagle-oj-db
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 123456 # The database password
     restart: always
     volumes:
       - $PWD/data/mysql:/var/lib/mysql
@@ -20,16 +20,16 @@ services:
     image: d87904488/eagle-oj-api
     container_name: eagle-oj-api
     environment:
-      VIRTUAL_HOST: localhost
-      MYSQL_URL: db:3306
-      MYSQL_DATABASE: eagle_oj
-      MYSQL_USERNAME: root
-      MYSQL_PASSWORD: 123456
+      VIRTUAL_HOST: localhost # The domain you want to bind
+      MYSQL_URL: db:3306 # The mysql connection url
+      MYSQL_DATABASE: eagle_oj # Mysql database
+      MYSQL_USERNAME: root # Mysql username
+      MYSQL_PASSWORD: 123456 # Mysql password
     restart: always
     volumes:
       - $PWD/data/api:/eagle-oj/data
     # ports:
-    #   - "8080:8080"
+    #   - "8080:8080" # If you want to open 8080 port 
   nginx:
     image: jwilder/nginx-proxy:alpine
     container_name: nginx
@@ -39,7 +39,7 @@ services:
       - api
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      # - $PWD/ssl:/etc/nginx/certs
+      # - $PWD/ssl:/etc/nginx/certs # If you want to enable SSL
     ports:
       - "80:80"
       # - "443:443" If you want to enable SSL
