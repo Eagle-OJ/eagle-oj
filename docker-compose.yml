@@ -4,7 +4,7 @@ services:
     image: d87904488/eagle-oj-db
     container_name: eagle-oj-db
     environment:
-      MYSQL_ROOT_PASSWORD: eagle_oj
+      MYSQL_ROOT_PASSWORD: 123456
     restart: always
     volumes:
       - $PWD/data/mysql:/var/lib/mysql
@@ -24,7 +24,7 @@ services:
       MYSQL_URL: db:3306
       MYSQL_DATABASE: eagle_oj
       MYSQL_USERNAME: root
-      MYSQL_PASSWORD: eagle_oj
+      MYSQL_PASSWORD: 123456
     restart: always
     volumes:
       - $PWD/data/api:/eagle-oj/data
